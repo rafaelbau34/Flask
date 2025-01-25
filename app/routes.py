@@ -1,4 +1,4 @@
-from flask import Flask, Blueprint, jsonify, render_template, flash, request
+from flask import Blueprint, render_template, flash, request
 
 # Crea un blueprint para organizar las rutas
 
@@ -17,14 +17,12 @@ def greet():
     flash('Hola ' + str(request.form['name_input']) + ', nos da gusto verte!')
     return render_template('index.html')
  
-@main.route("/api/unid", methods= ['GET'])
-def unid():
-    return jsonify(
-    {
-        "name": "Universidad Interamericana Pars El Desarrollo",
-        "acronym": "UNID",
-        "city": "Acapulco",
-        "country": "México",
-        "message": "Hola, bienvenido a mi API",
-    }
-    )
+@main.route('/contacto')
+def contacto():
+    return render_template('contacto.html')
+
+@main.route('/about')
+def about():
+    return render_template('about.html')
+
+
