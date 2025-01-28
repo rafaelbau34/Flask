@@ -4,18 +4,112 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Sobre Nosotros</title>
-    <link rel = "stylesheet" href="{{url_for('static', filename='css/main.css')}}">
+    <link
+      rel="stylesheet"
+      href="{{url_for('static', filename='css/main.css')}}"
+    />
   </head>
   <body>
     <nav class="navbar">
-        <div class="navdiv">
-          <div class="logo"><a href="/">CHAVALES</a> </div>
-          <ul>
-            <li><a href="{{url_for('main.about')}}">Sobre Nosotros</a></li>
-            <li><a href="{{url_for('main.contacto')}}">Contacto</a></li>
-            <button><a href="">Registrate</a></button>
-            <button><a href="">Inicia Sesión</a></button>
-          </ul>
+      <div class="navdiv">
+        <div class="logo"><a href="/">CHAVALES</a></div>
+        <ul>
+          <li><a href="{{url_for('main.about')}}">Sobre Nosotros</a></li>
+          <li><a href="{{url_for('main.contacto')}}">Contacto</a></li>
+          <button><a href="">Registrate</a></button>
+          <button><a href="">Inicia Sesión</a></button>
+        </ul>
+      </div>
+    </nav>
+    <main>
+      <!-- Company Overview -->
+      <section class="company-overview">
+        <h2>¿Quiénes Somos?</h2>
+        <p>
+          En <strong>Chavales</strong>, somos un grupo de desarrolladores
+          apasionados por la creación de soluciones tecnológicas innovadoras.
+          Desde el diseño de aplicaciones hasta el desarrollo de plataformas
+          completas, nuestra misión es ayudar a las empresas a transformar sus
+          ideas en productos exitosos.
+        </p>
+      </section>
+
+      <!-- Values Section -->
+      <section class="values">
+        <h2>Nuestros Valores</h2>
+
+        <div class="value-card">
+          <h3>Innovación</h3>
+          <p>
+            Buscamos constantemente nuevas formas de resolver problemas mediante
+            la tecnología.
+          </p>
         </div>
-</body>
+        <div class="value-card">
+          <h3>Colaboración</h3>
+          <p>
+            Creemos que el éxito se construye trabajando en equipo con nuestros
+            clientes.
+          </p>
+        </div>
+        <div class="value-card">
+          <h3>Inclusividad</h3>
+          <p>
+            Trabajamos con negros, chinos, y hasta con mujeres!
+            Desafortunadamente exceptuamos gays y afines.
+          </p>
+        </div>
+      </section>
+
+      <!-- Team Section -->
+      <section class="team">
+        <h2>Conoce a Nuestro Equipo</h2>
+        <div class="team-grid">
+          <div class="team-member">
+            <img
+              src="https://lh5.googleusercontent.com/proxy/hhQShQcgzutSI3f2zq_9WTOw4gCpjXQFZEMMr-C2XcmW9eiSfDaKfyKBytkdNPdmOuz0E671fsbHBH8"
+              alt="Team Member"
+            />
+            <h3>Pixel Medina</h3>
+            <p>Desarrollador Full Stack</p>
+          </div>
+          <div class="team-member">
+            <img
+              src="https://media-cldnry.s-nbcnews.com/image/upload/t_fit-1240w,f_auto,q_auto:best/newscms/2014_32/599346/arthurchuheadshot8x10.jpg"
+              alt="Team Member"
+            />
+            <h3>Chi Chi Wa</h3>
+            <p>Desarrollador Full Stack</p>
+          </div>
+          <div class="team-member">
+            <img
+              src="https://assets.mycast.io/actor_images/actor-gio-scotti-507124_large.jpg?1659924078"
+              alt="Team Member"
+            />
+            <h3>Gio Scotti</h3>
+            <p>Gerente de Proyecto</p>
+          </div>
+          <div class="team-member">
+            <img
+              src="https://external-preview.redd.it/eNm5DN1ubeU24BBB8t24l9mwstJ4lulrNktdDuSDtCQ.jpg?auto=webp&s=fed607efa0020d45e0224434de2e6f48a7db326c"
+              alt="Team Member"
+            />
+            <h3>Adrian Romano</h3>
+            <p>Diseñador</p>
+          </div>
+          <div class="team-member">
+            <img
+              src="https://i1.rgstatic.net/ii/profile.image/537038580404224-1505051383586_Q512/Ramon-Aguilar-Torreblanca.jpg"
+              alt="Team Member"
+            />
+            <h3>Ramon Aguilar Torreblanca</h3>
+            <p>Padrote</p>
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer class="footer">
+      <p>© 2025 Chavales - Todos los derechos reservados.</p>
+    </footer>
+  </body>
 </html>
