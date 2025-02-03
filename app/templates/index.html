@@ -34,6 +34,30 @@
       <br />
       <input type="submit" value="OK" id="greet" />
     </form>
+    <h1>Lista de Usuarios</h1>
+
+    <!-- Formulario para agregar usuarios -->
+    <form action="{{ url_for('main.add_kevin') }}" method="POST">
+      <input type="text" name="nombre" placeholder="Nombre" required />
+      <input type="text" name="apellido" placeholder="Apellido" required />
+      <input type="text" name="telefono" placeholder="Teléfono" required />
+      <button type="submit">Agregar</button>
+    </form>
+
+    <ul>
+      {% for kevin in kevin_list %}
+      <li>
+        {{ kevin.nombre }} {{ kevin.apellido }} - {{ kevin.telefono }}
+        <form
+          action="{{ url_for('main.delete_kevin', id=kevin.id) }}"
+          method="POST"
+          style="display: inline"
+        >
+          <button type="submit">Eliminar</button>
+        </form>
+      </li>
+      {% endfor %}
+    </ul>
     <footer class="footer">
       <p>© 2025 Chavales - Todos los derechos reservados.</p>
     </footer>
