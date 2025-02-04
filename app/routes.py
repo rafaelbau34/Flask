@@ -1,4 +1,4 @@
-from flask import Blueprint, render_template, flash, request, jsonify, redirect, url_for
+from flask import Blueprint, jsonify, render_template, request, redirect, url_for, flash
 from app import db
 from app.models import Kevin
 # Crea un blueprint para organizar las rutas
@@ -10,7 +10,8 @@ main = Blueprint('main', __name__)
 @main.route('/')
 def home():
     flash('¿Cual es tu nombre?')
-    return render_template('index.html')
+    kevin_list = Kevin.query.all()
+    return render_template('index.html', kevin_list=kevin_list)
 
 @main.route('/greet', methods=['POST', 'GET'])
 def greet():
@@ -36,6 +37,7 @@ def unid():
         "country": "Mexico"
     })
 
+
 # 🟢 API para listar registros de la tabla `kevin`
 @main.route("/api/kevin", methods=["GET"])
 def get_kevin():
@@ -57,11 +59,12 @@ def add_kevin():
     if not nombre or not apellidos or not telefono:
         return "Error: Todos los campos son obligatorios", 400
 
-    new_entry = Kevin(nombre=nombre, apellido=apellidos, telefono=telefono)
+    new_entry = Kevin(nombre=nombre, apellidos=apellidos, telefono=telefono)
     db.session.add(new_entry)
     db.session.commit()
 
     return redirect(url_for('main.home'))
+
 
 # 🔴 API para eliminar un registro
 @main.route("/api/kevin/delete/<string:id>", methods=["POST"])

@@ -39,7 +39,7 @@
     <!-- Formulario para agregar usuarios -->
     <form action="{{ url_for('main.add_kevin') }}" method="POST">
       <input type="text" name="nombre" placeholder="Nombre" required />
-      <input type="text" name="apellido" placeholder="Apellido" required />
+      <input type="text" name="apellidos" placeholder="Apellidos" required />
       <input type="text" name="telefono" placeholder="Teléfono" required />
       <button type="submit">Agregar</button>
     </form>
@@ -47,7 +47,7 @@
     <ul>
       {% for kevin in kevin_list %}
       <li>
-        {{ kevin.nombre }} {{ kevin.apellido }} - {{ kevin.telefono }}
+        {{ kevin.nombre }} {{ kevin.apellidos }} - {{ kevin.telefono }}
         <form
           action="{{ url_for('main.delete_kevin', id=kevin.id) }}"
           method="POST"
