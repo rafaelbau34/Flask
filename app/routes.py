@@ -1,6 +1,6 @@
 from flask import Blueprint, jsonify, render_template, request, redirect, url_for, flash
 from app import db
-from app.models import Kevin
+from app.models import Rafael
 # Crea un blueprint para organizar las rutas
 
 main = Blueprint('main', __name__)
@@ -10,8 +10,8 @@ main = Blueprint('main', __name__)
 @main.route('/')
 def home():
     flash('¿Cual es tu nombre?')
-    kevin_list = Kevin.query.all()
-    return render_template('index.html', kevin_list=kevin_list)
+    rafael_list = Rafael.query.all()
+    return render_template('index.html', rafael_list=rafael_list)
 
 @main.route('/greet', methods=['POST', 'GET'])
 def greet():
@@ -39,19 +39,19 @@ def unid():
 
 
 # 🟢 API para listar registros de la tabla `kevin`
-@main.route("/api/kevin", methods=["GET"])
-def get_kevin():
-    kevin_list = Kevin.query.all()
+@main.route("/api/rafael", methods=["GET"])
+def get_rafael():
+    rafael_list = Rafael.query.all()
     return jsonify([{
         "id": k.id,
         "nombre": k.nombre,
         "apellidos": k.apellidos,
         "telefono": k.telefono
-    } for k in kevin_list])
+    } for k in rafael_list])
 
 # 🔵 API para agregar un nuevo registro
-@main.route("/api/kevin/add", methods=["POST"])
-def add_kevin():
+@main.route("/api/rafael/add", methods=["POST"])
+def add_rafael():
     nombre = request.form.get('nombre')
     apellidos = request.form.get('apellidos')
     telefono = request.form.get('telefono')
@@ -59,7 +59,7 @@ def add_kevin():
     if not nombre or not apellidos or not telefono:
         return "Error: Todos los campos son obligatorios", 400
 
-    new_entry = Kevin(nombre=nombre, apellidos=apellidos, telefono=telefono)
+    new_entry = Rafael(nombre=nombre, apellidos=apellidos, telefono=telefono)
     db.session.add(new_entry)
     db.session.commit()
 
@@ -67,14 +67,16 @@ def add_kevin():
 
 
 # 🔴 API para eliminar un registro
-@main.route("/api/kevin/delete/<string:id>", methods=["POST"])
-def delete_kevin(id):
-    entry = Kevin.query.get(id)
+@main.route("/api/rafael/delete/<string:id>", methods=["POST"])
+def delete_rafael(id):
+    entry = Rafael.query.get(id)
     if entry:
         db.session.delete(entry)
         db.session.commit()
         return redirect(url_for('main.home'))
 
     return jsonify({"error": "Usuario no encontrado"}), 404
+
+
 
 

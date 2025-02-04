@@ -37,7 +37,7 @@
     <h1>Lista de Usuarios</h1>
 
     <!-- Formulario para agregar usuarios -->
-    <form action="{{ url_for('main.add_kevin') }}" method="POST">
+    <form action="{{ url_for('main.add_rafael') }}" method="POST">
       <input type="text" name="nombre" placeholder="Nombre" required />
       <input type="text" name="apellidos" placeholder="Apellidos" required />
       <input type="text" name="telefono" placeholder="Teléfono" required />
@@ -45,11 +45,11 @@
     </form>
 
     <ul>
-      {% for kevin in kevin_list %}
+      {% for rafael in rafael_list %}
       <li>
-        {{ kevin.nombre }} {{ kevin.apellidos }} - {{ kevin.telefono }}
+        {{ rafael.nombre }} {{ rafael.apellidos }} - {{ rafael.telefono }}
         <form
-          action="{{ url_for('main.delete_kevin', id=kevin.id) }}"
+          action="{{ url_for('main.delete_rafael', id=rafael.id) }}"
           method="POST"
           style="display: inline"
         >
